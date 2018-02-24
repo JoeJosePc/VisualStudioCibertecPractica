@@ -1,0 +1,191 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tabla de Usuarios</h2>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+
+<button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal">Nuevo Usuario</button>
+<div style="height: 10px"></div>
+
+<div id="FormularioTablaUsuario">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Nuevo Usuario</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <label for="Usuario">Usuario</label>
+                        <input id="Usuario" type="text" data-bind="value: Usuario" class="form-control input-sm">
+                    </div>
+                    <div class="input-group">
+                        <label for="Password">Password</label>
+                        <input id="Password" type="password" data-bind="value: Password" class="form-control input-sm">
+                    </div>
+                    <div class="input-group">
+                        <label for="Responsable">Responsable</label>
+                        <input id="Responsable" type="text" data-bind="value: Responsable" class="form-control input-sm">
+                    </div>
+                    <div class="input-group">
+                        <label for="Nivel">Nivel</label>
+                        <input id="Nivel" type="text" data-bind="value: Nivel" class="form-control input-sm">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="GuardarUsuario" class="btn btn-primary btn_spec btn-close" data-bind="click: RegistrarUsuario"> Guardar </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <table id="TablaDeUsuarios">
+        <thead>
+            <tr>
+                <td>Usuario</td>
+                <td>Responsable</td>
+                <td>Nivel</td>
+                <td>Estado</td>
+            </tr>
+        </thead>
+    </table>
+    <!--
+    <table id="UsuariosKnockout">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Responsable</th>
+                <th>Nivel</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: Usuarios">
+            <tr>
+                <td data-bind="text: Usuario"></td>
+                <td data-bind="text: Responsable"></td>
+                <td data-bind="text: Nivel"></td>
+                <td data-bind="text: Estado"></td>
+            </tr>
+        </tbody>
+    </table>
+        -->
+</div>
+
+@Scripts.Render("~/bundles/ScriptsGlobales")
+@Scripts.Render("~/bundles/FormularioDeUsuario")
+
+<script>
+    /*
+    var tablaDeUsuarios;
+
+    $(document).ready(function () {
+        tablaDeUsuarios = $('#UsuariosTable').DataTable();
+        CargarTablaDeProductos();
+    });
+
+    function CargarTablaDeProductos() {
+        $.get("../api/usuarios", function (usuarios) {
+            usuarios.forEach(function (usuario) {
+                tablaDeUsuarios.row.add([
+                    usuario.Usuario,
+                    usuario.Responsable,
+                    usuario.Nivel,
+                    usuario.Estado
+                ])
+            });
+            tablaDeUsuarios.draw();
+        });
+    }
+
+    function AgregarUsuarioATabla(usuario) {
+        tablaDeUsuarios.row.add(
+                    [
+                        usuario.Usuario,
+                        usuario.Responsable,
+                        usuario.Nivel,
+                        usuario.Estado
+                    ]
+        );
+    }*/
+    /*
+    function NuevoUsuario() {
+        this.Usuario = "";
+        this.Contrasena = "";
+        this.Responsable = "";
+        this.Nivel = "";
+        return this;
+    }
+
+    
+    function CrearNuevoUsuario(Usuario, Contrasena, Responsable, Nivel) {
+        var nuevoUsuario = SacarUsuarioDelFormulario();
+        $.ajax({
+            url: "../api/usuarios",
+            type: "POST",
+            data: JSON.stringify(nuevoUsuario),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (usuario) {
+                AgregarUsuarioATabla(usuario);
+                tablaDeUsuarios.draw();
+                LimpiarFormulario();
+            }
+        });
+    }
+
+    function SacarUsuarioDelFormulario() {
+        var Usuario = $('#Usuario').val();
+        var Contrasena = $('#Password').val();
+        var Responsable = $('#Responsable').val();
+        var Nivel = $('#Nivel').val();
+        var nuevoUsuario = new NuevoUsuario();
+        nuevoUsuario.Usuario = Usuario;
+        nuevoUsuario.Contrasena = Contrasena;
+        nuevoUsuario.Responsable = Responsable;
+        nuevoUsuario.Nivel = Nivel;
+        return nuevoUsuario;
+    }
+
+    function LimpiarFormulario() {
+        $('#Usuario').val('');
+        $('#Password').val('');
+        $('#Responsable').val('');
+        $('#Nivel').val('');
+        $('#myModal').modal('hide');
+    }
+    
+    $('#GuardarUsuario').click(function () {
+        CrearNuevoUsuario();
+    })
+    
+    function FormularioUsuario() {
+        var self = this;
+        self.Usuario = ko.observable("");
+        self.Password = ko.observable("");
+        self.Responsable = ko.observable("");
+        self.Nivel = ko.observable("");
+        self.LimpiarFormulario = function () {
+            self.Usuario("");
+            self.Password("");
+            self.Responsable("");
+            self.Nivel("");
+        }
+        return self;
+    }
+    
+    var formularioViewModel = new FormularioUsuario();
+    var formularioHTML = document.getElementById("FormularioTablaUsuario");
+    ko.applyBindings(formularioViewModel, formularioHTML);
+    */
+
+</script>
